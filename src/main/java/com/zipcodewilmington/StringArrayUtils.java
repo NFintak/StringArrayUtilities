@@ -1,5 +1,7 @@
 package com.zipcodewilmington;
 
+import java.util.ArrayList;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -93,6 +95,7 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
+
         return false;
     }
 
@@ -102,7 +105,13 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int numOfMatches = 0;
+        for (String word : array) {
+            if (word.equals(value)) {
+                numOfMatches++;
+            }
+        }
+        return numOfMatches;
     }
 
     /**
@@ -111,7 +120,17 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        ArrayList<String> removedValue = new ArrayList<>();
+        for (int i = 0; i < array.length; i++) {
+            if (!array[i].equals(valueToRemove)) {
+                removedValue.add(array[i]);
+            }
+        }
+        String[] valueRemoved = removedValue.toArray(new String[0]);
+        //check TDD shoppingCart for method to remove elements from arrays, should just be array.remove(valueToRemove)
+        //but just in case check thinkJava, headFirstJava, and oracle
+        return valueRemoved;
+        //return null;
     }
 
     /**
@@ -119,7 +138,16 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        return null;
+        ArrayList<String> noDuplicates = new ArrayList<>();
+        noDuplicates.add(array[0]);
+        for (int i = 1; i < array.length; i++) {
+            if (!array[i].equals(array[i - 1])) {
+                noDuplicates.add(array[i]);
+            }
+        }
+        String[] duplicatesRemoved = noDuplicates.toArray(new String[0]);
+        return duplicatesRemoved;
+        //return null;
     }
 
     /**
