@@ -95,8 +95,21 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-
-        return false;
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String fullPhrase = "";
+        int counter = 0;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String phrase : array) {
+            String phraseLower = phrase.toLowerCase();
+            fullPhrase = stringBuilder.append(phraseLower).toString();
+        }
+        for (int i = 1; i <= alphabet.length(); i++) {
+            if (fullPhrase.contains(alphabet.substring(i - 1, i))) {
+                counter++;
+            }
+        }
+        return counter == 26;
+        //return false;
     }
 
     /**
@@ -127,8 +140,6 @@ public class StringArrayUtils {
             }
         }
         String[] valueRemoved = removedValue.toArray(new String[0]);
-        //check TDD shoppingCart for method to remove elements from arrays, should just be array.remove(valueToRemove)
-        //but just in case check thinkJava, headFirstJava, and oracle
         return valueRemoved;
         //return null;
     }
@@ -155,6 +166,7 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
+
         return null;
     }
 
